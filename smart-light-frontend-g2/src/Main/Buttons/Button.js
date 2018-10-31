@@ -4,7 +4,7 @@ class Button extends Component {
     render() {
         return (
             <button style={{
-                margin: '10px',
+                margin: '15px',
                 borderRadius: '15px',
                 padding: '10px',
                 outline: 'none'
