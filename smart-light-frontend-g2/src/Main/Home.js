@@ -3,6 +3,8 @@ import logo from '../logo.svg';
 import Button from '../Main/Buttons/Button';
 import injectSheet from 'react-jss';
 import {Grid, Col, Row} from 'react-bootstrap';
+import ReactFC from '../Main/Grafico/Grafico';
+//import ToggleButton from 'react-bootstrap';
 
 
 const styles = {
@@ -17,43 +19,38 @@ const styles = {
     HomeHeader: {
         backgroundColor: '#282c34',
         minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 'calc(10px + 2vmin)',
         color: 'white',
     },
+    columnStyle: {
+        margin: '20px',
+        display: 'block',
+        width: '95%',
 
-    containerFluid: {
-        display: "inline-block",
     },
-
-    gridItem: {
-        display: "inline",
-    }
 };
 
 const homeComponent = ({classes}) => (
     <div className={classes.Home}>
         <header className={classes.HomeHeader}>
-            <Grid className={classes.containerFluid}>
-                <Row>
-                <Col className={classes.gridItem} xs={6} sm={6} md={6} lg={6}>
-                    <Button/>
-                </Col>
-                <Col className={classes.gridItem} xs={6} sm={6} md={6} lg={6}>
-                    <Button/>
-                </Col>
+            <Grid className='container-fluid'>{/*<ReactFC/>*/}
+                <Row className='container-fluid'>
+                    <Col className={classes.columnStyle} xs={6} sm={6} md={6} lg={6}>
+                        <div style={{border: 'solid 3px', borderColor:'#ff2627',width:'40%', height:'750px',float:'right'}}>
+                            <ReactFC/>
+                        </div>
+                    </Col>
+                    <Col className={classes.columnStyle} xs={6} sm={6} md={6} lg={6}>
+                        <div style={{border: 'solid 3px', borderColor:'#ff2627',width:'55%', height:'750px', float:'left'}}>
+                            <img src={logo} className={classes.HomeLogo} alt="logo"/>
+                            {/*<ToggleButton/>*/}
+                            <Button>aaaa</Button>
+                        </div>
+                    </Col>
                 </Row>
             </Grid>
-
-            <img src={logo} className={classes.HomeLogo} alt="logo"/>
-            <p>
-                angelo sei bello
-                <Button/>
-            </p>
         </header>
+
+
     </div>
 );
 

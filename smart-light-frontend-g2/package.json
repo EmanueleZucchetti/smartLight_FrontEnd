@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fusioncharts": "^3.13.2-sr.1",
+    "moment": "^2.22.2",
     "react": "^16.6.0",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.0",
+    "react-fusioncharts": "^2.0.5",
     "react-jss": "^8.6.1",
     "react-scripts": "2.0.5"
   },
