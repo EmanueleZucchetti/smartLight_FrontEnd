@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class Lampadina extends Component {
     render() {
         return (
