@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
+import Calls from "../Service/Calls";
 
 class ONbutton extends Component {
     render() {
+        function click(){
+
+            Calls.accendi(1);
+            Calls.status(1,function (body) {});
+
+        }
         return (
-            <button style={{
+            <button onClick={click} style={{
             margin: '15px',
                 borderRadius: '15px',
                 padding: '10px',
