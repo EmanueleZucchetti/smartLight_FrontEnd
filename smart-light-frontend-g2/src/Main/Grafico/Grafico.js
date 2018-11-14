@@ -1,118 +1,63 @@
-import React, {Component} from 'react';
-import FusionCharts from 'fusioncharts';
-import charts from 'fusioncharts/fusioncharts.charts';
-import ReactFusioncharts from 'react-fusioncharts';
+import React from "react";
 
-// Resolves charts dependancy
-charts(FusionCharts);
+import Chart from "react-google-charts";
 
-const dataSource = {
-    "chart": {
-        "caption": "App Publishing Trend",
-        "subcaption": "2012-2016",
-        "xaxisname": "Years",
-        "yaxisname": "Total number of apps in store",
-        "formatnumberscale": "1",
-        "plottooltext": "<b>$dataValue</b> apps were available on <b>$seriesName</b> in $label",
-        "theme": "fusion",
-        "drawcrossline": "1"
-    },
-    "categories": [
-        {
-            "category": [
-                {
-                    "label": "2012"
-                },
-                {
-                    "label": "2013"
-                },
-                {
-                    "label": "2014"
-                },
-                {
-                    "label": "2015"
-                },
-                {
-                    "label": "2016"
-                }
-            ]
-        }
-    ],
-    "dataset": [
-        {
-            "seriesname": "iOS App Store",
-            "data": [
-                {
-                    "value": "125000"
-                },
-                {
-                    "value": "300000"
-                },
-                {
-                    "value": "480000"
-                },
-                {
-                    "value": "800000"
-                },
-                {
-                    "value": "1100000"
-                }
-            ]
-        },
-        {
-            "seriesname": "Google Play Store",
-            "data": [
-                {
-                    "value": "70000"
-                },
-                {
-                    "value": "150000"
-                },
-                {
-                    "value": "350000"
-                },
-                {
-                    "value": "600000"
-                },
-                {
-                    "value": "1400000"
-                }
-            ]
-        },
-        {
-            "seriesname": "Amazon AppStore",
-            "data": [
-                {
-                    "value": "10000"
-                },
-                {
-                    "value": "100000"
-                },
-                {
-                    "value": "300000"
-                },
-                {
-                    "value": "600000"
-                },
-                {
-                    "value": "900000"
-                }
-            ]
-        }
-    ]
+const options = {
+    width: 1000,
+    height: 300,
+    redFrom: 90,
+    redTo: 100,
+    yellowFrom: 75,
+    yellowTo: 90,
+    minorTicks: 5
+};
+
+const getRandomNumber = () => {
+    return Math.random() * 100;
 };
 
 class Grafico extends React.Component {
+    state = {
+        watt: 55
+    };
+    intervalID = null;
+    getData = () => {
+        return [
+            ["Label", "Value"],
+            ["Watt", this.state.watt],
+        ];
+    };
+    componentWillUnmount() {
+        if (this.intervalID === null) return;
+        clearInterval(this.intervalID);
+    }
+    componentDidMount() {
+        this.intervalID = setInterval(() => {
+            this.setState(state => {
+                return {
+                    ...state,
+                    watt: getRandomNumber(),
+
+                };
+            });
+        }, 500);
+    }
     render() {
+        // console.log(this.getData());
         return (
-            <ReactFusioncharts
-        type = "mscolumn2d"
-        width = '100%'
-        height = '100%'
-        dataFormat = "JSON"
-        dataSource = {dataSource} />
-    );
+            <div className="App">
+                <Chart
+                    chartType="Gauge"
+                    width="100%"
+                    height="400px"
+                    data={this.getData()}
+                    options={options}
+                    style={{}}
+                />
+            </div>
+        );
     }
 }
+
 
 export default Grafico;
