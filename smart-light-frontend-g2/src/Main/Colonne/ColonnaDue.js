@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
+import Grafico from '../../Main/Grafico/Grafico';
 
 class ColonnaDue extends Component {
     render() {
         return (
-            <button style={{
-                margin: '15px',
-                borderRadius: '15px',
-                padding: '10px',
-                outline: 'none'
-            }}>
-                angelo sei bello
-            </button>
+            <div>
+                <Grafico/>
+            </div>
         );
     }
 }

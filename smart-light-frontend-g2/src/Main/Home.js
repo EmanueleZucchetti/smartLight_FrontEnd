@@ -24,7 +24,6 @@ const styles = {
 
 const homeComponent = ({classes}) => (
     <div className={classes.Home}>
-        <header className={classes.HomeHeader}>
             <divContainer style={{
                 border: 'solid 3px',
                 borderColor: '#ff2627',
@@ -44,7 +43,6 @@ const homeComponent = ({classes}) => (
             }}>
                <ColonnaDue/>
             </divContainer>
-        </header>
     </div>
 );
 
