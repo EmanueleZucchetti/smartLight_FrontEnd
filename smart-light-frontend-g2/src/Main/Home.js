@@ -25,8 +25,6 @@ const styles = {
 const homeComponent = ({classes}) => (
     <div className={classes.Home}>
             <divContainer style={{
-                border: 'solid 3px',
-                borderColor: '#ff2627',
                 width: '55%',
                 height: '750px',
                 float: 'left'
@@ -35,8 +33,6 @@ const homeComponent = ({classes}) => (
             </divContainer>
 
             <divContainer style={{
-                border: 'solid 3px',
-                borderColor: '#ff2627',
                 width: '40%',
                 height: '750px',
                 float: 'right'

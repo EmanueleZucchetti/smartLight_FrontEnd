@@ -4,7 +4,7 @@ import Chart from "react-google-charts";
 
 const options = {
     width: 1000,
-    height: 300,
+    height: 400,
     redFrom: 90,
     redTo: 100,
     yellowFrom: 75,
@@ -52,7 +52,11 @@ class Grafico extends React.Component {
                     height="400px"
                     data={this.getData()}
                     options={options}
-                    style={{}}
+                    style={{
+                        marginLeft:'35px',
+                        marginTop:'100px',
+
+                    }}
                 />
             </div>
         );
