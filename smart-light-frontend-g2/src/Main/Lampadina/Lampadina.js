@@ -6,11 +6,9 @@ import lampOFF_1 from '../Resources/lamp_off_1.png';
 import lampOFF_2 from '../Resources/lamp_off_2.png';
 import lampOFF_3 from '../Resources/lamp_off_3.png';
 import wallOff from "../Resources/wallOFF.jpg";
-
+import Calls from "../Service/Calls";
 
 var image = lampOFF_1;
-
-
 
 class Lampadina extends Component {
 
@@ -25,11 +23,17 @@ class Lampadina extends Component {
         var imageNumber = 0;
 
          this.change = () => {
-            if (!this.stato){
-                image = lampON[imageNumber++];
-            } else {
-                image = lampOFF[imageNumber++];
-            }
+             Calls.status(1,function (response) {
+                 var stato=response.stato;
+                 if (!stato){
+                     image = lampON[imageNumber++];
+                 } else {
+                     image = lampOFF[imageNumber++];
+                 }
+             });
+
+
+
 
             console.log(this.stato);
 
@@ -47,8 +51,17 @@ class Lampadina extends Component {
     }
 
     changeState(){
+
+        if (this.stato){
+            Calls.spegni(1,null);
+        }else {
+            Calls.accendi(1,null);
+        }
+
+
         this.stato = !this.stato;
         this.change();
+        // Calls.accendi() se la lampafina è spenta
     }
 
     render() {
@@ -56,7 +69,7 @@ class Lampadina extends Component {
 
         return (
             <div>
-            <img onClick={()=> this.changeState()} style={{width:'90%'}} src={image}></img>
+                <img onClick={()=> this.changeState()} style={{width:'90%'}} src={image}></img>
             lampadina</div>
     );
     }
