@@ -53,11 +53,16 @@ class Lampadina extends Component {
     changeState(){
 
         if (this.stato){
-            Calls.spegni(1,null);
+            Calls.azione(1,{
+                id: '01',
+                action: 'accendi'
+            });
         }else {
-            Calls.accendi(1,null);
+            Calls.action(1,{
+                id: '01',
+                action: 'spegni'
+            });
         }
-
 
         this.stato = !this.stato;
         this.change();
