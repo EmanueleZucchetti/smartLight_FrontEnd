@@ -1,36 +1,67 @@
-import FusionCharts from 'fusioncharts';
-import charts from 'fusioncharts/fusioncharts.charts';
-import ReactFC from 'react-fusioncharts';
-import React, {Component} from 'react';
+import React from "react";
 
-// Resolves charts dependancy
-charts(FusionCharts);
+import Chart from "react-google-charts";
 
-const dataSource = {
-    "chart": {
-        "caption": "Tensione",
-        "subcaption": "In watt",
-        "numbersuffix": "W",
-        "theme": "fusion"
-    },
-    "data": [
-        {
-            "value": "40"
-        },
-    ]
+const options = {
+    width: 1000,
+    height: 400,
+    redFrom: 90,
+    redTo: 100,
+    yellowFrom: 75,
+    yellowTo: 90,
+    minorTicks: 5
 };
 
-class Grafico extends Component {
+const getRandomNumber = () => {
+    return Math.random() * 100;
+};
+
+class Grafico extends React.Component {
+    state = {
+        watt: 55
+    };
+    intervalID = null;
+    getData = () => {
+        return [
+            ["Label", "Value"],
+            ["Watt", this.state.watt],
+        ];
+    };
+    componentWillUnmount() {
+        if (this.intervalID === null) return;
+        clearInterval(this.intervalID);
+    }
+    componentDidMount() {
+        this.intervalID = setInterval(() => {
+            this.setState(state => {
+                return {
+                    ...state,
+                    watt: getRandomNumber(),
+
+                };
+            });
+        }, 500);
+    }
     render() {
+        // console.log(this.getData());
         return (
-            <ReactFC
-                type = "Bar3D"
-                width = '100%'
-                height = '26.5%'
-                dataFormat = "JSON"
-                dataSource = {dataSource}
+            <div className="App">
+                <Chart
+                    chartType="Gauge"
+                    width="100%"
+                    height="400px"
+                    data={this.getData()}
+                    options={options}
+                    style={{
+                        marginLeft:'35px',
+                        marginTop:'100px',
+
+                    }}
                 />
+            </div>
         );
     }
 }
+
+
 export default Grafico;

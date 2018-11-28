@@ -3,10 +3,14 @@ import OFFbutton from '../Buttons/OFF';
 import ONbutton from '../Buttons/ON';
 import Lampadina from '../Lampadina/Lampadina';
 
+import wallOff from '../Resources/wallOFF.jpg';
+
+
 class ColonnaUno extends Component {
     render() {
         return (
             <table style={{
+                backgroundImage: `url(${wallOff})`,
                 width:'90%',
                 height:'100%',
                 border:'solid black',
@@ -14,11 +18,20 @@ class ColonnaUno extends Component {
                 borderRadius: '15px',
                 padding: '10px',
                 outline: 'none'
-        }}>
-
-        <tr><td rowspan="2"><Lampadina/></td><td><ONbutton/></td></tr>
-        <tr><td><OFFbutton/></td></tr>
-
+            }}>
+        <tr>
+            <td rowspan="2">
+                <Lampadina/>
+            </td>
+            <td>
+                <ONbutton/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <OFFbutton/>
+            </td>
+        </tr>
     </table>
     );
     }
