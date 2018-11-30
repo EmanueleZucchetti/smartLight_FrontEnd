@@ -61,8 +61,8 @@ module.exports = {
             method: 'GET',
             timeout:timeout
         }, function(error, response, body){
-            console.log(body);
-            callback(body);
+            console.log("Status:" +body);
+            callback(JSON.parse(body));
             requestManager(error,response);
         });
     },

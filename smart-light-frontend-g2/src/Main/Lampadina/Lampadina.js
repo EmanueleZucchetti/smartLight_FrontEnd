@@ -5,12 +5,19 @@ import lampON_3 from '../Resources/lamp_on_3.png';
 import lampOFF_1 from '../Resources/lamp_off_1.png';
 import lampOFF_2 from '../Resources/lamp_off_2.png';
 import lampOFF_3 from '../Resources/lamp_off_3.png';
+import lampER1 from '../img/ER1.png';
+import lampER2 from '../img/ER2.png';
+import lampOFF0 from '../img/OFF.png';
+import lampON1 from '../img/ON1.png';
+import lampON2 from '../img/ON2.png';
+import sfondoLuceER from '../img/sfondoLuceER.jpg';
+import sfondoLuceOFF from '../img/sfondoLuceOFF.jpg';
+import sfondoLuceON from '../img/sfondoLuceON.jpg';
 import wallOff from "../Resources/wallOFF.jpg";
-
+import Calls from "../Service/Calls";
 
 var image = lampOFF_1;
-
-
+var sfondo = sfondoLuceON;
 
 class Lampadina extends Component {
 
@@ -20,20 +27,30 @@ class Lampadina extends Component {
     }
     
     componentDidMount() {
-        var lampON = [ lampOFF_1, lampOFF_2, lampOFF_3];
-        var lampOFF = [ lampON_1, lampON_2, lampON_3];
+        var lampOFF = [ lampOFF0 , lampOFF0];
+        var lampON = [ lampON1, lampON2];
+        var lampERR = [ lampER1, lampER2];
+
         var imageNumber = 0;
 
          this.change = () => {
-            if (!this.stato){
-                image = lampON[imageNumber++];
-            } else {
-                image = lampOFF[imageNumber++];
-            }
+             Calls.status(1,function (response) {
+                 var stato = response.stato;
 
-            console.log(this.stato);
+                 if (stato){
+                     sfondo = sfondoLuceON;
+                     image = lampON[imageNumber++];
 
-            if (imageNumber == lampOFF.length) {
+                 } else {
+                     sfondo = sfondoLuceOFF;
+                     image = lampOFF[imageNumber++];
+
+                 }
+
+             });
+
+
+            if (imageNumber >= lampOFF.length) {
                 imageNumber = 0;
             }
             this.setState({ time: Date.now() });
@@ -47,7 +64,23 @@ class Lampadina extends Component {
     }
 
     changeState(){
-        this.stato = !this.stato;
+
+        Calls.status(1,function (response) {
+            console.log(response.stato);
+
+            if (!response.stato){
+                Calls.azione(1,{
+                    id: '01',
+                    action: 'accendi'
+                });
+            }else {
+                Calls.azione(1,{
+                    id: '01',
+                    action: 'spegni'
+                });
+            }
+        });
+
         this.change();
     }
 
@@ -55,9 +88,9 @@ class Lampadina extends Component {
 
 
         return (
-            <div>
-            <img onClick={()=> this.changeState()} style={{width:'90%'}} src={image}></img>
-            lampadina</div>
+            <table style={{ backgroundImage: `url(${sfondo})`}}>
+                <img onClick={()=> this.changeState()} style={{width:'90%'}} src={image}></img>
+            </table>
     );
     }
 }

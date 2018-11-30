@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import OFFbutton from '../Buttons/OFF';
-import ONbutton from '../Buttons/ON';
 import Lampadina from '../Lampadina/Lampadina';
 
 import wallOff from '../Resources/wallOFF.jpg';
@@ -24,12 +22,12 @@ class ColonnaUno extends Component {
                 <Lampadina/>
             </td>
             <td>
-                <ONbutton/>
+
             </td>
         </tr>
         <tr>
             <td>
-                <OFFbutton/>
+
             </td>
         </tr>
     </table>
