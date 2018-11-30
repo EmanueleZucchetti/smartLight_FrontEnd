@@ -53,7 +53,7 @@ class Grafico extends React.Component {
                     data={this.getData()}
                     options={options}
                     style={{
-                        marginLeft:'35px',
+                        marginLeft:'97px',
                         marginTop:'100px',
 
                     }}

@@ -99,7 +99,7 @@ app.get('/api/ottieniInformazioni/:id', function(req, res) {
 app.post('/smartlight/lightbulb/:id/action', function(req, res){
     var id = req.params.id;
     var action = req.param("action");
-
+    console.log(action);
     request({
         url: gestoreLuce + "/api/" + action + "/" + id,
         method: 'POST'
@@ -112,10 +112,13 @@ app.post('/smartlight/lightbulb/:id/action', function(req, res){
 app.get('/smartlight/lightbulb/:id/status', function(req, res) {
     var id = req.params.id;
 
+
     request({
         url: gestoreLuce + "/api/ottieniStato/" + id,
         method: 'GET'
     }, function(error, response, body){
+        console.log(body);
+
         res.send(body);
     });
 });

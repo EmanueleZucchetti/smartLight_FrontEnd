@@ -37,6 +37,7 @@ class Lampadina extends Component {
              Calls.status(1,function (response) {
                  var stato = response.stato;
 
+
                  if (stato){
                     // sfondo = sfondoLuceOFF;
                      image = lampON[imageNumber++];
@@ -66,7 +67,7 @@ class Lampadina extends Component {
     changeState(){
 
         Calls.status(1,function (response) {
-            console.log(response.stato);
+           // console.log(response.stato);
 
             if (!response.stato){
                 Calls.azione(1,{
@@ -89,7 +90,7 @@ class Lampadina extends Component {
 
         return (
             <table>
-                <img onClick={()=> this.changeState()} style={{width:'90%'}} src={image}></img>
+                <img onClick={()=> this.changeState()} style={{width:'90%', marginLeft:'150px'}} src={image}></img>
             </table>
     );
     }

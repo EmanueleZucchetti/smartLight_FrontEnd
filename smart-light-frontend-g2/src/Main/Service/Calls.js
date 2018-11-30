@@ -8,9 +8,10 @@ const timeout = 1500;
 const resources = function(url){
     return function (id) {
         const urls = {
-            azione:url +"/smartlight/lightbulb/{0}/action".replace("{0}",id),
-            accendi:url +"/api/accendi/{0}".replace("{0}",id),
+
+            accendi: url +"/api/accendi/{0}".replace("{0}",id),
             spegni: url +"/api/spegni/{0}".replace("{0}",id),
+            azione: url +"/smartlight/lightbulb/{0}/action".replace("{0}",id),
             status: url +"/smartlight/lightbulb/{0}/status".replace("{0}",id),
             info:   url +"/smartlight/lightbulb/{0}/info".replace("{0}",id)
         };

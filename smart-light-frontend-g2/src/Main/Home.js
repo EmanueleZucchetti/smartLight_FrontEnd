@@ -23,7 +23,8 @@ const styles = {
 };
 
 const homeComponent = ({classes}) => (
-    <table style={{ backgroundImage: `url(${sfondoLuceOFF})`}}>
+    <div style={{backgroundColor:'#626262', paddingTop:'1px', paddingBottom:'1px'}}>
+    <table style={{ backgroundImage: `url(${sfondoLuceOFF})`, paddingRight:'500px', margin:'30px', }}>
     <div className={classes.Home}>
             <divContainer style={{
                 width: '55%',
@@ -42,6 +43,7 @@ const homeComponent = ({classes}) => (
             </divContainer>
     </div>
     </table>
+    </div>
 );
 
 class Home extends Component {

@@ -13,6 +13,7 @@
     "react-google-charts": "^3.0.10",
     "react-jss": "^8.6.1",
     "react-scripts": "2.0.5",
+    "react-switch": "^3.0.4",
     "request-promise": "^4.2.2"
   },
   "scripts": {
