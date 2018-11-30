@@ -8,12 +8,10 @@ class ColonnaUno extends Component {
     render() {
         return (
             <table style={{
-                backgroundImage: `url(${wallOff})`,
+
                 width:'90%',
                 height:'100%',
-                border:'solid black',
                 margin: '15px',
-                borderRadius: '15px',
                 padding: '10px',
                 outline: 'none'
             }}>

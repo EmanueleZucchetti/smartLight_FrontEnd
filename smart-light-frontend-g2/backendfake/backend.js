@@ -96,7 +96,7 @@ app.get('/api/ottieniInformazioni/:id', function(req, res) {
 });
 
 
-app.post('/smartlighgt/lightbulb/:id/action', function(req, res){
+app.post('/smartlight/lightbulb/:id/action', function(req, res){
     var id = req.params.id;
     var action = req.param("action");
 
@@ -109,7 +109,7 @@ app.post('/smartlighgt/lightbulb/:id/action', function(req, res){
 
 });
 
-app.get('/smartlighgt/lightbulb/:id/status', function(req, res) {
+app.get('/smartlight/lightbulb/:id/status', function(req, res) {
     var id = req.params.id;
 
     request({

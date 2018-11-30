@@ -38,11 +38,11 @@ class Lampadina extends Component {
                  var stato = response.stato;
 
                  if (stato){
-                     sfondo = sfondoLuceON;
+                    // sfondo = sfondoLuceOFF;
                      image = lampON[imageNumber++];
 
                  } else {
-                     sfondo = sfondoLuceOFF;
+                    // sfondo = sfondoLuceOFF;
                      image = lampOFF[imageNumber++];
 
                  }
@@ -56,7 +56,7 @@ class Lampadina extends Component {
             this.setState({ time: Date.now() });
         };
 
-        this.interval = setInterval(this.change, 500);
+        this.interval = setInterval(this.change, 150);
     }
 
     componentWillUnmount() {
@@ -88,7 +88,7 @@ class Lampadina extends Component {
 
 
         return (
-            <table style={{ backgroundImage: `url(${sfondo})`}}>
+            <table>
                 <img onClick={()=> this.changeState()} style={{width:'90%'}} src={image}></img>
             </table>
     );

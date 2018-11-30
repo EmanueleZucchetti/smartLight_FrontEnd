@@ -36,12 +36,12 @@ module.exports = {
     },
     azione: function(id,json) {
         return requestPromise({
-            url: urls(id).accendi,
+            url: urls(id).azione,
             method: 'POST',
             json: json,
             timeout:timeout
         }, function(error, response, body){
-            console.log(JSON.parse(body));
+            console.log(body);
             requestManager(error,response);
         });
     },
