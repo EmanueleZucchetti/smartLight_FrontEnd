@@ -14,7 +14,7 @@ class ColonnaDue extends Component {
                     marginLeft:'120px',
 
                 }}>
-                    Ciao sono un div, scrivi qualcosa DENTRO DI ME
+                    Ciao sono un div, scrivi qualcosa           DENTRO DI ME
                 </div>
             </div>
         );
