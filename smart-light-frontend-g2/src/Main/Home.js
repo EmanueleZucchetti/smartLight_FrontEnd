@@ -4,7 +4,7 @@ import ReactFC from '../Main/Grafico/Grafico';
 //import ToggleButton from 'react-bootstrap';
 import ColonnaUno from "./Colonne/ColonnaUno";
 import ColonnaDue from "./Colonne/ColonnaDue";
-
+import sfondoLuceOFF from '../Main/img/sfondoLuceOFF.jpg'
 
 const styles = {
     Home: {
@@ -23,6 +23,7 @@ const styles = {
 };
 
 const homeComponent = ({classes}) => (
+    <table style={{ backgroundImage: `url(${sfondoLuceOFF})`}}>
     <div className={classes.Home}>
             <divContainer style={{
                 width: '55%',
@@ -40,6 +41,7 @@ const homeComponent = ({classes}) => (
                <ColonnaDue/>
             </divContainer>
     </div>
+    </table>
 );
 
 class Home extends Component {
