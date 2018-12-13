@@ -46,10 +46,13 @@ class ColonnaDue extends Component {
                     marginLeft: '250px',
 
                 }}>
+                    <div style={{float:'left', fontSize:'25px'}}>BackEnd 1</div>
                     <SwitchButton
+
                     onClick={()=>{
                         console.log('ciaooone');
                     }}/>
+                    <div style={{float:'right', fontSize:'25px'}}>BackEnd 2</div>
                 </div>
             </div>
         );
