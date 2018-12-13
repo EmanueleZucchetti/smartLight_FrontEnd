@@ -5,6 +5,7 @@ import ReactFC from '../Main/Grafico/Grafico';
 import ColonnaUno from "./Colonne/ColonnaUno";
 import ColonnaDue from "./Colonne/ColonnaDue";
 import sfondoLuceOFF from '../Main/img/sfondoLuceOFF.jpg'
+import Switch from "./Buttons/Switch"
 
 const styles = {
     Home: {

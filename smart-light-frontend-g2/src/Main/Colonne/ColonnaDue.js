@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Grafico from '../../Main/Grafico/Grafico';
 import App from '../../App.css';
 import SwitchButton from '../Buttons/Switch';
-
+import SwitchStyle from '../Buttons/SwitchStyle.css'
 
 var defaultColorB1;
 var defaultColorB2;
