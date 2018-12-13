@@ -13,7 +13,7 @@ const options = {
 };
 
 const getRandomNumber = () => {
-    return Math.random() * 100;
+    return Math.random() * 10;
 };
 
 class Grafico extends React.Component {

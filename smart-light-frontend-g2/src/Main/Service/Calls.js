@@ -8,12 +8,7 @@ const errorTimeout = 5000;
 const resources = function(url){
     return function (id) {
         const urls = {
-
-            accendi: url +"/api/accendi/{0}".replace("{0}",id),
-            spegni: url +"/api/spegni/{0}".replace("{0}",id),
-
             azione: url +"/smartlightbackend/smartlight/lightbulb/{0}/action".replace("{0}",id),
-
             status: url +"/smartlightbackend/smartlight/lightbulb/{0}/status".replace("{0}",id),
             info:   url +"/smartlight/lightbulb/{0}/info".replace("{0}",id)
         };
@@ -63,28 +58,6 @@ module.exports = {
     azione: function(id,json) {
         return requestPromise({
             url: urls(id).azione,
-            method: 'POST',
-            json: json,
-            timeout:timeout
-        }, function(error, response, body){
-            console.log(body);
-            requestManager(error,response);
-        });
-    },
-    accendi: function(id,json) {
-        return requestPromise({
-            url: urls(id).accendi,
-            method: 'POST',
-            json: json,
-            timeout:timeout
-        }, function(error, response, body){
-            console.log(body);
-            requestManager(error,response);
-        });
-    },
-    spegni: function (id,json) {
-        return requestPromise({
-            url: urls(id).spegni,
             method: 'POST',
             json: json,
             timeout:timeout
