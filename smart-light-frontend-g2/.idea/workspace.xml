@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6ad7d809-3db8-4ad2-96fe-21b8cdfdbac3" name="Default Changelist" comment="switch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Colonne/ColonnaDue.js" afterPath="$PROJECT_DIR$/src/Main/Colonne/ColonnaDue.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Switch.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Switch.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/Buttons/Switch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -106,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ColonnaDue.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ColonnaDue.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/Colonne/ColonnaDue.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="615">
+              <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -300,7 +299,7 @@
       <workItem from="1544383831689" duration="6474000" />
       <workItem from="1544452734004" duration="4303000" />
       <workItem from="1544704876254" duration="1974000" />
-      <workItem from="1544707673336" duration="1942000" />
+      <workItem from="1544707673336" duration="2639000" />
     </task>
     <task id="LOCAL-00001" summary="funzioniren">
       <created>1543513213885</created>
@@ -330,11 +329,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544709065311</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="switch">
+      <created>1544709630388</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1544709630388</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23889000" />
+    <option name="totallyTimeSpent" value="24586000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -590,22 +596,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Buttons/Switch.js">
+    <entry file="file://$PROJECT_DIR$/src/Main/Colonne/ColonnaDue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="615">
+          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Colonne/ColonnaDue.js">
+    <entry file="file://$PROJECT_DIR$/src/Main/Buttons/Switch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
