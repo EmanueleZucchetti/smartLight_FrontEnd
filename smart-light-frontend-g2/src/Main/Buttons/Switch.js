@@ -2,29 +2,38 @@ import React, { Component } from "react";
 import Switch from "react-switch";
 import SwitchManager from "../Service/SwitchManager";
 
-class SwitchButton extends Component {
-    constructor() {
-        super();
-        this.state = { checked: false };
-        this.handleChange = this.handleChange.bind(this);
+class SwitchButton extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isChecked: null
+        }
     }
 
-    handleChange(checked) {
-        this.setState({ checked });
+
+
+componentWillMount() {
+        this.setState({isChecked: this.props.isChecked});
     }
+
 
     render() {
+
         return (
-            <label htmlFor="normal-switch">
-                <span>Switch with default style</span>
-                <Switch
-                    onChange={this.handleChange}
-                    checked={this.state.checked}
-                    id="normal-switch"
-                />
-            </label>
+            <div className="switch-container">
+                <label>
+                    <input ref="switch" checked={this.state.isChecked} onChange={this._handleChange} className="switch"
+                           type="checkbox"/>
+                    <div>
+
+                        <div></div>
+                    </div>
+                </label>
+            </div>
         );
     }
 }
 
-export default SwitchButton;
+    export default SwitchButton;
