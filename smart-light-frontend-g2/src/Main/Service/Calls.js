@@ -2,8 +2,8 @@
 const requestPromise = require('request-promise');
 const request = require('request');
 
-
 const timeout = 1500;
+const errorTimeout = 5000;
 
 const resources = function(url){
     return function (id) {
@@ -11,8 +11,10 @@ const resources = function(url){
 
             accendi: url +"/api/accendi/{0}".replace("{0}",id),
             spegni: url +"/api/spegni/{0}".replace("{0}",id),
-            azione: url +"/smartlight/lightbulb/{0}/action".replace("{0}",id),
-            status: url +"/smartlight/lightbulb/{0}/status".replace("{0}",id),
+
+            azione: url +"/smartlightbackend/smartlight/lightbulb/{0}/action".replace("{0}",id),
+
+            status: url +"/smartlightbackend/smartlight/lightbulb/{0}/status".replace("{0}",id),
             info:   url +"/smartlight/lightbulb/{0}/info".replace("{0}",id)
         };
         console.log(url);
@@ -20,18 +22,41 @@ const resources = function(url){
     }
 };
 
-var urls = resources("http://localhost:8085");
+var urls = resources("http://192.168.43.1:8084");
 
-function requestManager(error, response){
+var BACKEND1 = "http://192.168.43.134:8084";
+var BACKEND2 = "http://192.168.43.134:8084";
+
+var urls = resources("http://192.168.43.134:8084");
+var errorOpen = true;
+
+function requestManager(error, response, body,callback,errCallback){
     if (response && response.statusCode != 200) {
         // error
     }
     if (error) {
         console.log("errore");
+
+        errCallback();
+        if (errorOpen) {
+            alert(error);
+            errorOpen = false;
+            setTimeout(()=>{errorOpen=true},errorTimeout);
+        }
+    } else {
+
+        if (callback){callback(JSON.parse(body))};
     }
 }
 
 module.exports = {
+    setBackend:function(backend){
+        if (backend==1) {
+            this.url(BACKEND1)
+        } else {
+            this.url(BACKEND2)
+        }
+    },
     url: function(url){
         urls = resources(url);
     },
@@ -68,15 +93,15 @@ module.exports = {
             requestManager(error,response);
         });
     },
-    status: function (id,callback) {
+    status: function (id,callback,errCallback) {
         return request({
             url: urls(id).status,
             method: 'GET',
             timeout:timeout
         }, function(error, response, body){
             console.log("Status:" +body);
-            callback(JSON.parse(body));
-            requestManager(error,response);
+
+            requestManager(error,response,body,callback,errCallback);
         });
     },
     info: function (id,callback) {
@@ -87,9 +112,8 @@ module.exports = {
         }, function(error, response, body){
             console.log(body);
             callback(body);
-            requestManager(error,response);
+            requestManager(error,response,body,callback);
         });
     }
 };
-
 

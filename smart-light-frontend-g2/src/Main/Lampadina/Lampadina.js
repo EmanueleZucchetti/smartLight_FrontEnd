@@ -35,20 +35,27 @@ class Lampadina extends Component {
 
          this.change = () => {
              Calls.status(1,function (response) {
-                 var stato = response.stato;
+                 var stato = response.status == "ON" ? true : false;
 
+                 if (response.status == "ERROR") {
 
-                 if (stato){
-                    // sfondo = sfondoLuceOFF;
-                     image = lampON[imageNumber++];
+                     alert(response.message);
 
                  } else {
-                    // sfondo = sfondoLuceOFF;
-                     image = lampOFF[imageNumber++];
 
+                     if (stato) {
+                         // sfondo = sfondoLuceOFF;
+                         image = lampON[imageNumber++];
+
+                     } else {
+                         // sfondo = sfondoLuceOFF;
+                         image = lampOFF[imageNumber++];
+
+                     }
                  }
 
-             });
+             }, function () {
+                 image = lampERR[imageNumber++];});
 
 
             if (imageNumber >= lampOFF.length) {
@@ -57,7 +64,7 @@ class Lampadina extends Component {
             this.setState({ time: Date.now() });
         };
 
-        this.interval = setInterval(this.change, 150);
+        this.interval = setInterval(this.change, 1500);
     }
 
     componentWillUnmount() {
@@ -69,7 +76,7 @@ class Lampadina extends Component {
         Calls.status(1,function (response) {
            // console.log(response.stato);
 
-            if (!response.stato){
+            if (!response.status){
                 Calls.azione(1,{
                     id: '01',
                     action: 'accendi'
@@ -80,7 +87,7 @@ class Lampadina extends Component {
                     action: 'spegni'
                 });
             }
-        });
+        } );
 
         this.change();
     }
